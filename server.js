@@ -28,6 +28,7 @@ app.get('/sendchallenge', async (request, response, next) =>
 {
 	const apiURL = "https://api.hackerearth.com/v4/partner/code-evaluation/submissions/";
 	const submittedCode = request.body.code;
+	const email = request.body.email;
 	const challenge = await Challenge.findById(request.body.id);
 
 	const body =
