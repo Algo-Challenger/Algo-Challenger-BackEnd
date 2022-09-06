@@ -1,0 +1,33 @@
+[
+  {
+    "template": "const addOne = (arr) => { }; ",
+    "instructions": "Write a function named `addOne` that takes an array of numbers, and returns a new array of the numbers, incremented by 1. Use `forEach` to loop over the input array and work with each value.  Push the new value into a local array. Return the local array.",
+    "test": "console.log(addOne([1, 2, 3, 4, 5]) === [2, 3, 4, 5, 6]);",
+    "name": "AddOne",
+    "type": "Arrays"
+  },
+
+  {
+    "template": "const addExclamation = (arr) => { }; ",
+    "instructions": "Write a function named `addExclamation` that takes an array of strings, and returns a new array of the same strings with an '!' added to the end. Use `forEach` to loop over the input array. Modify each string, and add the updated value into a local array. Return the local array;",
+    "test": "console.log(addExclamation(['hi', 'how', 'are', 'you']) === ['hi!', 'how!', 'are!', 'you!']);",
+    "name": "AddExclamation",
+    "type": "Arrays"
+  },
+
+  {
+    "template": "const allUpperCase = (arr) => { }; ",
+    "instructions": "Write a function named `allUpperCase` that takes an array of strings, and returns a new array of the strings converted to upper case. Use `forEach` to loop over the input array. The modified strings should each be added into a local array. Return that local array.",
+    "test": "console.log(allUpperCase(['hi', 'how', 'are', 'you']) === ['HI', 'HOW', 'ARE', 'YOU']);",
+    "name": "allUpperCase",
+    "type": "Arrays"
+  },
+
+  {
+    "template": "const speaker = (arr) => { }; ",
+    "instructions": "Write a function named `greeting` that takes in a single string and returns the string in all uppercase letters, and followed by an '!'.Then, write a function named `speaker` that takes in an array of strings and a callback function. Use `forEach` to build a new array of strings, each string modified by the callback. Return the new array. ",
+    "test": "console.log(speaker(['hello', '301', 'students']) === ['HELLO!', '301!', 'STUDENTS!']);",
+    "name": "speaker",
+    "type": "Arrays"
+  }
+]
