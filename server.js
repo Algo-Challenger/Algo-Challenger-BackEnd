@@ -133,10 +133,6 @@ app.delete('/delete', async (request, response, next) =>
 
 	let savedChallenges = user.savedChallenges;
 
-
-app.listen(PORT, () => console.log(`listening on ${PORT}`));
-
-
 	let index = savedChallenges.findIndex(challenge => challenge === challengeId);
 
 	savedChallenges.splice(index, 1);
