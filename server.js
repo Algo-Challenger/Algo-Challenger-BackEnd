@@ -87,7 +87,7 @@ app.post('/sendchallenge', async (request, response, next) =>
 	response.status(200).send(testResults.data);
 });
 
-app.listen(PORT, '127.0.0.1', () => console.log(`listening on ${PORT}`));
+app.listen(PORT, () => console.log(`listening on ${PORT}`));
 
 function delay(milliseconds) { //TODO find a better way than this ?
 	return new Promise(resolve => {
