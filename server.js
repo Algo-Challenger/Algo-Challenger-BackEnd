@@ -6,6 +6,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 mongoose.connect(process.env.DB_URL);
 const Challenge = require('./challenge.js');
+const User = require('./user.js');
 const axios = require("axios");
 const app = express();
 app.use(express.json());
@@ -24,12 +25,38 @@ app.get('/challenges', async (request, response, next) =>
 	}
 });
 
-app.get('/sendchallenge', async (request, response, next) =>
+// Adding in user to the database:
+app.post('/user', async (request, response, next) => {
+  try{
+    let newUser = await User.findOne({name: request.body.name, email: request.body.email})
+    console.log(newUser);
+
+    if(!newUser){
+        newUser =  await User.create({
+            name: request.body.name,
+            email: request.body.email,
+            score: 0,
+            challengesInitialized: [],
+            savedChanges: [],
+        });
+    }
+    console.log(newUser);
+
+
+    response.status(200).send(newUser);
+  }
+  catch (error){
+    next(error);
+  }
+})
+
+app.post('/sendchallenge', async (request, response, next) =>
 {
 	const apiURL = "https://api.hackerearth.com/v4/partner/code-evaluation/submissions/";
 	const submittedCode = request.body.code;
 	const email = request.body.email;
 	const challenge = await Challenge.findById(request.body.id);
+
 
 	const body =
 		{
@@ -60,7 +87,7 @@ app.get('/sendchallenge', async (request, response, next) =>
 	response.status(200).send(testResults.data);
 });
 
-app.listen(PORT, () => console.log(`listening on ${PORT}`));
+app.listen(PORT, '127.0.0.1', () => console.log(`listening on ${PORT}`));
 
 function delay(milliseconds) { //TODO find a better way than this ?
 	return new Promise(resolve => {
