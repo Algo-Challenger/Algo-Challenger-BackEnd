@@ -25,7 +25,7 @@
 
   {
     "template": "const speaker = (arr) => { }; ",
-    "instructions": "Write a function named `greeting` that takes in a single string and returns the string in all uppercase letters, and followed by an '!'.Then, write a function named `speaker` that takes in an array of strings and a callback function. Use `forEach` to build a new array of strings, each string modified by the callback. Return the new array. ",
+    "instructions":"Write a function named `speaker` that takes in an array of strings. Use `forEach` to build a new array of strings that is in all capital letters and a `!` at the end. ",
     "test": "console.log(JSON.stringify(speaker(['hello', '301', 'students'])) === JSON.stringify(['HELLO!', '301!', 'STUDENTS!']));",
     "name": "speaker",
     "type": "Arrays"
