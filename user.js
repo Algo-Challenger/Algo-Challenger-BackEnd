@@ -8,7 +8,7 @@ const userSchema = new Schema ({
   email: { type: String, required: true},
   score: { type: Number, required: true},
   challengesInitialized: { type: Array, required: true},
-  savedChanges: {type: Array, required: true},
+  savedChallenges: {type: Array, required: true},
 });
 
 const userModel = mongoose.model('User', userSchema);
