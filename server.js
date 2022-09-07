@@ -152,6 +152,22 @@ app.listen(PORT, () => console.log(`listening on ${PORT}`));
 
 });
 
+app.delete('/user', async (request, response, next) => {
+	try {
+  
+	  const deleteUserId = request.body.userId;
+  
+	  await User.findByIdAndDelete(deleteUserId);
+	  response.status(200).send("Success");
+  
+  
+  
+	}
+	catch (error) {
+	  next(error);
+	}
+  })
+
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
 
 async function saveSubmission(userId, challengeId, code, result)
