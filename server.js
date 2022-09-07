@@ -133,10 +133,6 @@ app.delete('/delete', async (request, response, next) =>
 
 	let savedChallenges = user.savedChallenges;
 
-
-app.listen(PORT, () => console.log(`listening on ${PORT}`));
-
-
 	let index = savedChallenges.findIndex(challenge => challenge === challengeId);
 
 	savedChallenges.splice(index, 1);
@@ -151,6 +147,22 @@ app.listen(PORT, () => console.log(`listening on ${PORT}`));
 	}
 
 });
+
+app.delete('/user', async (request, response, next) => {
+	try {
+  
+	  const deleteUserId = request.body.userId;
+  
+	  await User.findByIdAndDelete(deleteUserId);
+	  response.status(200).send("Success");
+  
+  
+  
+	}
+	catch (error) {
+	  next(error);
+	}
+  })
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
 
