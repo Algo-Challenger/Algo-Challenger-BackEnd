@@ -8,7 +8,8 @@ const { Schema } = mongoose;
 const challengeSchema = new Schema ({
   template: {type: String, required: true},
   instructions: { type: String, required: true },
-  test: { type: String, required: true },
+  testCode: { type: String, required: true },
+  tests: { type: Object, required: true},
   name: { type: String, required: true },
   type: { type: String, required: true }
 });
