@@ -124,10 +124,16 @@ app.post('/sendchallenge', async (request, response, next) =>
 		let resultURL = statusUpdate.data.result.run_status.output;
 
 		let testResults = await axios.get(resultURL);
+		let data = testResults.data;
 
-		await saveSubmission(userId, challengeId, code, testResults.data);
+		if (typeof(data) === typeof("string"))
+		{
+			data = false;
+		}
 
-		response.status(200).send(testResults.data);
+		await saveSubmission(userId, challengeId, code, data);
+
+		response.status(200).send(data);
 	} catch (error)
 	{
 		next(error);
